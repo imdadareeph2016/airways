@@ -2,6 +2,7 @@
 import FlightSearchForm from "@/components/FlightSearchForm";
 import DestinationsShowcase from "@/components/DestinationsShowcase";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -41,6 +42,8 @@ const Index = () => {
           <DestinationsShowcase />
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
