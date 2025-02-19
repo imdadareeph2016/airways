@@ -1,10 +1,12 @@
 
 import FlightSearchForm from "@/components/FlightSearchForm";
 import DestinationsShowcase from "@/components/DestinationsShowcase";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-secondary">
+      <Navbar />
       {/* Hero Section */}
       <section
         className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center p-6"
