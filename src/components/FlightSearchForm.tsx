@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Calendar, PlaneLanding, PlaneTakeoff, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -97,11 +96,11 @@ const FlightSearchForm = () => {
                       "Search airports..."}
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-full p-0 bg-white">
-                  <Command>
+                <PopoverContent className="w-full p-0 bg-white" align="start">
+                  <Command shouldFilter={false}>
                     <CommandInput placeholder="Search airport..." />
                     <CommandEmpty>No airport found.</CommandEmpty>
-                    <CommandGroup className="max-h-[200px] overflow-auto">
+                    <CommandGroup>
                       {airports.map((airport) => (
                         <CommandItem
                           key={airport.code}
@@ -137,11 +136,11 @@ const FlightSearchForm = () => {
                       "Search airports..."}
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-full p-0 bg-white">
-                  <Command>
+                <PopoverContent className="w-full p-0 bg-white" align="start">
+                  <Command shouldFilter={false}>
                     <CommandInput placeholder="Search airport..." />
                     <CommandEmpty>No airport found.</CommandEmpty>
-                    <CommandGroup className="max-h-[200px] overflow-auto">
+                    <CommandGroup>
                       {airports.map((airport) => (
                         <CommandItem
                           key={airport.code}
