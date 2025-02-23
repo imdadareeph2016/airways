@@ -66,7 +66,9 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button
               variant={isScrolled ? "outline" : "secondary"}
-              className={!isScrolled ? "text-white hover:bg-white hover:text-primary" : ""}
+              className={`hover:text-accent ${
+                !isScrolled ? "text-white hover:bg-white" : ""
+              }`}
             >
               Sign In
             </Button>
@@ -104,7 +106,7 @@ const Navbar = () => {
                     {link.label}
                   </a>
                 ))}
-                <Button variant="ghost">Sign In</Button>
+                <Button variant="ghost" className="hover:text-accent">Sign In</Button>
                 <Button>
                   <User className="mr-2 h-4 w-4" />
                   Register
