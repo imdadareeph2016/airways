@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Calendar, PlaneLanding, PlaneTakeoff, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,12 +9,12 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Popover,
   PopoverContent,
@@ -83,82 +84,42 @@ const FlightSearchForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label>From</Label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    className="w-full justify-start"
-                  >
-                    <PlaneTakeoff className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-                    {fromAirport ? 
-                      airports.find((airport) => airport.code === fromAirport)?.code :
-                      "Search airports..."}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-full p-0 bg-white" align="start">
-                  <Command shouldFilter={false}>
-                    <CommandInput placeholder="Search airport..." />
-                    <CommandEmpty>No airport found.</CommandEmpty>
-                    <CommandGroup>
-                      {airports.map((airport) => (
-                        <CommandItem
-                          key={airport.code}
-                          value={airport.code}
-                          onSelect={(value) => {
-                            setFromAirport(value);
-                          }}
-                        >
-                          <span>{airport.code}</span>
-                          <span className="ml-2 text-gray-500">
-                            - {airport.city} ({airport.name})
-                          </span>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
+              <div className="relative">
+                <PlaneTakeoff className="absolute left-3 top-3 h-4 w-4 text-gray-500 z-10" />
+                <Select value={fromAirport} onValueChange={setFromAirport}>
+                  <SelectTrigger className="w-full pl-10">
+                    <SelectValue placeholder="Select departure airport" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {airports.map((airport) => (
+                      <SelectItem key={airport.code} value={airport.code}>
+                        <span className="font-medium">{airport.code}</span> -{" "}
+                        {airport.city} ({airport.name})
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
             <div className="space-y-2">
               <Label>To</Label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    className="w-full justify-start"
-                  >
-                    <PlaneLanding className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-                    {toAirport ? 
-                      airports.find((airport) => airport.code === toAirport)?.code :
-                      "Search airports..."}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-full p-0 bg-white" align="start">
-                  <Command shouldFilter={false}>
-                    <CommandInput placeholder="Search airport..." />
-                    <CommandEmpty>No airport found.</CommandEmpty>
-                    <CommandGroup>
-                      {airports.map((airport) => (
-                        <CommandItem
-                          key={airport.code}
-                          value={airport.code}
-                          onSelect={(value) => {
-                            setToAirport(value);
-                          }}
-                        >
-                          <span>{airport.code}</span>
-                          <span className="ml-2 text-gray-500">
-                            - {airport.city} ({airport.name})
-                          </span>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
+              <div className="relative">
+                <PlaneLanding className="absolute left-3 top-3 h-4 w-4 text-gray-500 z-10" />
+                <Select value={toAirport} onValueChange={setToAirport}>
+                  <SelectTrigger className="w-full pl-10">
+                    <SelectValue placeholder="Select arrival airport" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {airports.map((airport) => (
+                      <SelectItem key={airport.code} value={airport.code}>
+                        <span className="font-medium">{airport.code}</span> -{" "}
+                        {airport.city} ({airport.name})
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </div>
 
