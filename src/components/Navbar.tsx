@@ -65,8 +65,8 @@ const Navbar = () => {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              variant={isScrolled ? "ghost" : "outline"}
-              className={!isScrolled ? "text-white border-white hover:text-white hover:bg-white/20" : ""}
+              variant={isScrolled ? "outline" : "secondary"}
+              className={!isScrolled ? "text-white hover:bg-white hover:text-primary" : ""}
             >
               Sign In
             </Button>

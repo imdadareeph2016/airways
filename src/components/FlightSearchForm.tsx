@@ -90,9 +90,13 @@ const FlightSearchForm = () => {
                   <SelectTrigger className="w-full pl-10">
                     <SelectValue placeholder="Select departure airport" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white">
                     {airports.map((airport) => (
-                      <SelectItem key={airport.code} value={airport.code}>
+                      <SelectItem 
+                        key={airport.code} 
+                        value={airport.code}
+                        className="hover:bg-gray-100"
+                      >
                         <span className="font-medium">{airport.code}</span> -{" "}
                         {airport.city} ({airport.name})
                       </SelectItem>
@@ -110,9 +114,13 @@ const FlightSearchForm = () => {
                   <SelectTrigger className="w-full pl-10">
                     <SelectValue placeholder="Select arrival airport" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white">
                     {airports.map((airport) => (
-                      <SelectItem key={airport.code} value={airport.code}>
+                      <SelectItem 
+                        key={airport.code} 
+                        value={airport.code}
+                        className="hover:bg-gray-100"
+                      >
                         <span className="font-medium">{airport.code}</span> -{" "}
                         {airport.city} ({airport.name})
                       </SelectItem>
